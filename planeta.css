@@ -1,0 +1,260 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#020617,#071529,#0d1b2a);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Fondo espacial */
+
+.fondo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top left,#1E88E5 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#FF8C00 0%,transparent 30%);
+    opacity:.15;
+    z-index:-2;
+}
+
+/* Estrellas */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(white 1px,transparent 1px);
+    background-size:120px 120px,180px 180px;
+    background-position:0 0,60px 80px;
+    opacity:.18;
+    z-index:-1;
+}
+
+/* Header */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:35px 70px;
+}
+
+header h1{
+    color:#58A6FF;
+    font-size:45px;
+}
+
+/* Botón volver */
+
+.volver{
+    text-decoration:none;
+    color:white;
+    background:#1E88E5;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.volver:hover{
+    background:#FF8C00;
+    transform:translateY(-3px);
+}
+
+/* Contenedor */
+
+.contenedor{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:400px 1fr;
+    gap:60px;
+    align-items:center;
+    padding-bottom:60px;
+    animation:aparecer 1s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Imagen */
+
+.izquierda{
+    display:flex;
+    justify-content:center;
+}
+
+.izquierda img{
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    object-fit:cover;
+
+    box-shadow:
+    0 0 30px #1E88E5,
+    0 0 60px #1E88E5,
+    0 0 90px rgba(30,136,229,.6);
+
+    animation:flotar 5s ease-in-out infinite;
+    transition:.5s;
+}
+
+.izquierda img:hover{
+    transform:scale(1.05);
+}
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* Información */
+
+.derecha h2{
+    color:#FF8C00;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.derecha p{
+    color:#ddd;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Tarjetas */
+
+.estadisticas{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:35px;
+}
+
+.dato{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    transition:.4s;
+}
+
+.dato h3{
+    color:#58A6FF;
+    margin:12px 0;
+}
+
+.dato p{
+    color:white;
+}
+
+.dato:hover{
+    transform:translateY(-10px) scale(1.03);
+    background:rgba(255,255,255,.12);
+
+    box-shadow:
+    0 0 20px #1E88E5,
+    0 0 45px rgba(30,136,229,.5);
+}
+
+/* Botones */
+
+.botones{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.botones a{
+    text-decoration:none;
+}
+
+.botones button{
+    padding:16px 35px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+    color:white;
+
+    background:linear-gradient(135deg,#FF8C00,#ff5e00);
+
+    box-shadow:0 0 20px rgba(255,140,0,.5);
+
+    transition:.4s;
+}
+
+.botones button:hover{
+    transform:translateY(-4px);
+
+    background:linear-gradient(135deg,#1E88E5,#2563EB);
+
+    box-shadow:0 0 30px #1E88E5;
+}
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        padding:30px;
+        text-align:center;
+    }
+
+    .contenedor{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .estadisticas{
+        grid-template-columns:1fr;
+    }
+
+    .botones{
+        justify-content:center;
+    }
+
+    .izquierda img{
+        width:280px;
+        height:280px;
+    }
+
+}
