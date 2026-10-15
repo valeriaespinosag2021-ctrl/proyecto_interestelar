@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetas | Interestelar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i>
+            <h2>INTERESTELAR</h2>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+        </a>
+
+        <a href="{{ url_for('planetas') }}" class="activo">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>Planetas</span>
+        </a>
+
+        <a href="{{ url_for('escanear_qr') }}">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Escanear QR</span>
+        </a>
+
+        <a href="{{ url_for('perfil') }}">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Salir</span>
+        </a>
+    </div>
+
+    <div class="contenido">
+        <div class="header">
+            <div>
+                <h1>🪐 Sistema Solar</h1>
+                <p>Hola {{ nombre }}, selecciona un planeta para comenzar.</p>
+            </div>
+        </div>
+
+        <div class="cards">
+            {% for planeta in planetas %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/' + planeta.ruta_ilustracion) }}"
+                    style="width:180px;height:180px;object-fit:cover;border-radius:50%;margin:auto;display:block;"
+                    alt="{{ planeta.nombre }}">
+
+                <h2>{{ planeta.nombre }}</h2>
+                <p>{{ planeta.descripcion[:120] }}...</p>
+
+                <a href="{{ url_for('planeta', id_planeta=planeta.id_planeta) }}">
+                    <button class="explorar">Explorar</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>

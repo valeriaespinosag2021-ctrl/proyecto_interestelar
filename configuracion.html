@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración | Interestelar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="contenido" style="padding: 30px;">
+        <h1>⚙️ Configuración</h1>
+        <div style="background: #1a1d2e; padding: 25px; border-radius: 12px; max-width: 500px; margin-top: 20px;">
+            <h3>Preferencias del Visor</h3>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="checkbox" checked> Activar rotación automática en modelos 3D
+            </label>
+            <label style="display: block; margin-bottom: 10px;">
+                <input type="checkbox" checked> Habilitar sombras de alta definición
+            </label>
+        </div>
+        <a href="{{ url_for('dashboard') }}" style="color: #ff7700; display: inline-block; margin-top: 20px; text-decoration: none; font-weight: bold;">← Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | Interestelar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- MENÚ LATERAL -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i>
+            <h2>INTERESTELAR</h2>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+        </a>
+
+        <a href="{{ url_for('planetas') }}">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>Planetas</span>
+        </a>
+
+        <a href="{{ url_for('escanear_qr') }}">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Escanear QR</span>
+        </a>
+
+        <a href="{{ url_for('perfil') }}" class="activo">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Cerrar sesión</span>
+        </a>
+
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="contenido">
+
+        <h1>👤 Perfil de Usuario</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color: #00ff88; font-weight: bold; margin-top: 10px;">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('perfil') }}" style="background: #1a1d2e; padding: 25px; border-radius: 12px; max-width: 500px; margin-top: 20px;">
+            <label style="display: block; margin-bottom: 15px;">
+                <strong>Nombre de usuario:</strong><br>
+                <input type="text" name="nombre_usuario" value="{{ usuario.nombre_usuario }}" required style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: 1px solid #333; background: #0f111a; color: white;">
+            </label>
+
+            <label style="display: block; margin-bottom: 15px;">
+                <strong>Correo electrónico:</strong><br>
+                <input type="email" name="correo" value="{{ usuario.correo }}" required style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: 1px solid #333; background: #0f111a; color: white;">
+            </label>
+
+            <label style="display: block; margin-bottom: 15px;">
+                <strong>Edad:</strong><br>
+                <input type="number" name="edad" value="{{ usuario.edad }}" required style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 6px; border: 1px solid #333; background: #0f111a; color: white;">
+            </label>
+
+            <button type="submit" style="background: #ff7700; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px;">Guardar Cambios</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

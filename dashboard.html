@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- MENÚ LATERAL -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-rocket"></i>
+            <h2 style="font-size: 18px !important; letter-spacing: 0px !important;">INTERESTELAR</h2>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="activo">
+            <i class="fa-solid fa-house"></i>
+            <span>Inicio</span>
+        </a>
+
+        <a href="{{ url_for('planetas') }}">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>Planetas</span>
+        </a>
+
+        <a href="{{ url_for('escanear_qr') }}">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Escanear QR</span>
+        </a>
+
+        <a href="{{ url_for('perfil') }}">
+            <i class="fa-solid fa-user"></i>
+            <span>Perfil</span>
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Cerrar sesión</span>
+        </a>
+
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="contenido">
+
+        <div class="header">
+            <div>
+                <h1>🚀 Bienvenido {{ nombre }}</h1>
+                <p>Explora el Sistema Solar de una manera atractiva, innovadora e interactiva. En este proyecto podrás conocer los planetas y descubrir cómo la realidad aumentada transforma la información de tu libro físico en una experiencia espacial.</p>
+                
+                <div style="margin-top: 15px;">
+                    <h2 style="font-size: 20px; color: #ff3344; margin-bottom: 5px;">¿Qué tienes que hacer?</h2>
+                    <p style="font-size: 15px; color: #cbd5e1; margin: 0;">Lee la información de cada planeta en tu libro físico y sigue las instrucciones para observarlo mediante realidad aumentada. ¡Prepárate para explorar el universo!</p>
+                </div>
+            </div>
+
+            <div class="avatar">
+                🚀
+            </div>
+        </div>
+
+        <!-- TARJETAS -->
+        <div class="cards">
+
+            <a href="{{ url_for('planetas') }}" class="card">
+                <i class="fa-solid fa-earth-americas"></i>
+                <h2>Explorar Planetas</h2>
+                <p>Conoce todos los planetas del Sistema Solar.</p>
+            </a>
+
+            <a href="{{ url_for('escanear_qr') }}" class="card">
+                <i class="fa-solid fa-qrcode"></i>
+                <h2>Escanear QR</h2>
+                <p>Escanea el código del libro para abrir el planeta.</p>
+            </a>
+
+            <a href="{{ url_for('perfil') }}" class="card">
+                <i class="fa-solid fa-user"></i>
+                <h2>Perfil</h2>
+                <p>Gestiona tus datos personales de usuario.</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escanear QR | Interestelar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="contenido" style="padding: 30px;">
+        <h1>📷 Escanear Código QR</h1>
+        <p>Apunta con la cámara de tu dispositivo al código QR para acceder al modelo 3D directamente.</p>
+        <div style="background: #1a1d2e; padding: 40px; border-radius: 15px; text-align: center; margin-top: 20px;">
+            <i class="fa-solid fa-qrcode" style="font-size: 80px; color: #ff7700; margin-bottom: 20px;"></i>
+            <p>Cámara inactiva. Asegúrate de otorgar los permisos de cámara a la aplicación web.</p>
+        </div>
+        <a href="{{ url_for('dashboard') }}" style="color: #ff7700; display: inline-block; margin-top: 20px; text-decoration: none; font-weight: bold;">← Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interestelar - Registro</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family:Arial, Helvetica, sans-serif;
+            background:#0b1020;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .contenedor{
+            width:420px;
+            background:#161b22;
+            padding:35px;
+            border-radius:15px;
+            box-shadow:0px 0px 20px rgba(0,0,0,.5);
+            text-align:center;
+        }
+
+        h1{
+            color:#58a6ff;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-top:12px;
+            border:none;
+            border-radius:8px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background:#238636;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#2ea043;
+        }
+
+        a{
+            color:#58a6ff;
+            text-decoration:none;
+        }
+
+        .mensaje{
+            color:#ff7b72;
+            margin-top:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🚀 Crear Cuenta</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<div class="mensaje">
+
+{{ messages[0] }}
+
+</div>
+
+{% endif %}
+{% endwith %}
+
+<form method="POST">
+
+<input
+type="text"
+name="nombre"
+placeholder="Nombre de usuario"
+required>
+
+<input
+type="email"
+name="correo"
+placeholder="Correo electrónico"
+required>
+
+<input
+type="password"
+name="contrasena"
+placeholder="Contraseña"
+required>
+
+<input
+type="number"
+name="edad"
+placeholder="Edad"
+min="9"
+max="99"
+required>
+
+<button type="submit">
+
+Registrarme
+
+</button>
+
+</form>
+
+<br>
+
+¿Ya tienes una cuenta?
+
+<br><br>
+
+<a href="{{ url_for('login') }}">
+
+Iniciar sesión
+
+</a>
+
+</div>
+
+</body>
+</html>
